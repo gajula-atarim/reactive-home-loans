@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<title>SEO audit · reactivehomeloans.com.au</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#6d5df3; --primary-deep:#5546d8; --navy:#052055; --accent:#17de88; --accent-deep:#0fb86f;
+  --canvas:#ffffff; --subtle:#f6f4ff; --brand-soft:#f1effe;
+  --text-strong:#1a1f2e; --text:#363d4d; --text-dim:#535768;
+  --rule:rgba(54,61,77,.08); --rule-strong:rgba(54,61,77,.16);
+  --crit:#c62828; --crit-bg:#fdecec; --high:#c96a12; --high-bg:#fdf1e4;
+  --med:#2f6fbf; --med-bg:#e9f1fb; --low:#5d6474; --low-bg:#eff0f3;
+  --pass:#0f9d63; --pass-bg:#e5f8ef;
+  --shadow-tier1:rgba(0,0,51,.07) 0 0 0 1px, rgba(0,0,0,.05) 0 0 8px 0;
+  --font-body:'Roboto',sans-serif; --font-mono:'JetBrains Mono',monospace;
+}
+@page{size:A4;margin:14mm 12mm 14mm 12mm}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:var(--canvas);color:var(--text);font-family:var(--font-body);font-size:10.5pt;line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--font-mono)}
+code{font-family:var(--font-mono);font-size:.86em;color:var(--text-strong)}
+b,strong{color:var(--text-strong);font-weight:700}
+h1{font-weight:900;font-size:34pt;letter-spacing:-1.5px;line-height:1.05;color:var(--text-strong)}
+h2{font-weight:900;font-size:19pt;letter-spacing:-.8px;line-height:1.15;color:var(--text-strong);margin-bottom:8px}
+h3{font-weight:700;font-size:12pt;letter-spacing:-.2px;color:var(--text-strong)}
+.grad{background:linear-gradient(135deg,var(--primary) 0%,var(--accent-deep) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ul-grad{border-bottom:2px solid rgba(109,93,243,.35)}
+
+/* topbar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--rule-strong)}
+.brand{display:flex;align-items:center;gap:12px}
+.atarim-logo{height:24px;width:auto;display:block}
+.brand-tag{font-family:var(--font-mono);font-size:8pt;font-weight:500;color:var(--text-dim);padding:3px 10px;border-radius:999px;background:var(--brand-soft)}
+.topmeta{font-family:var(--font-mono);font-size:8pt;color:var(--text-dim)}
+.topmeta b{color:var(--text-strong)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:14px 0 22px;padding:6px 14px;border-radius:999px;background:#fff;box-shadow:var(--shadow-tier1);font-family:var(--font-mono);font-size:8.5pt;color:var(--primary);font-weight:500}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent)}
+.lede{font-size:13pt;color:var(--text-dim);line-height:1.5;margin-top:18px;max-width:92%}
+
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px}
+.tile{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:16px 18px;break-inside:avoid}
+.tile .n{font-weight:900;font-size:25pt;letter-spacing:-1px;line-height:1.1;color:var(--text-strong)}
+.tile .n small{font-size:14pt}
+.tile .l{font-weight:700;font-size:10pt;color:var(--text-strong);margin-top:4px}
+.tile .d{font-size:8.5pt;color:var(--text-dim);margin-top:6px;line-height:1.45}
+
+.toc{margin-top:40px;background:var(--subtle);border-radius:18px;padding:20px 26px}
+.toc .label{margin-bottom:10px}
+.toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(9,auto);gap:5px 30px}
+.toc li{font-size:9.5pt;color:var(--text-strong);display:flex;gap:10px}
+.toc li span{font-family:var(--font-mono);color:var(--primary);font-size:8.5pt;width:18px}
+
+section{padding-top:26px}
+.page-break{break-before:page}
+.label{font-family:var(--font-mono);font-size:8.5pt;color:var(--primary);font-weight:500;display:inline-flex;align-items:center;gap:8px;margin-bottom:6px}
+.label::before{content:'';width:16px;height:2px;background:var(--primary);border-radius:2px}
+.sec-lede{color:var(--text-dim);font-size:10pt;max-width:78%;margin-bottom:14px}
+p+p{margin-top:9px}
+.prose{max-width:66%;font-size:9.5pt}
+
+/* cards */
+.card{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:16px 18px;margin-top:12px;break-inside:avoid}
+.card h3{margin-bottom:6px}
+.card .sub{font-size:8.5pt;color:var(--text-dim);margin-bottom:8px}
+.callout{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:14px 18px;margin-top:12px;border-left:3px solid var(--accent);break-inside:avoid}
+.callout.crit{border-left-color:var(--crit)} .callout.high{border-left-color:var(--high)}
+.callout.med{border-left-color:var(--med)} .callout.gap{border-left-color:var(--high)}
+.callout-label{font-family:var(--font-mono);font-size:8pt;font-weight:500;color:var(--accent-deep);margin-bottom:6px;letter-spacing:.3px}
+.callout.crit .callout-label{color:var(--crit)} .callout.high .callout-label,.callout.gap .callout-label{color:var(--high)}
+.callout h4{font-weight:700;font-size:10.5pt;color:var(--text-strong);margin-bottom:5px}
+.callout p{font-size:9.5pt}
+
+/* finding card */
+.finding{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:14px 18px 16px 20px;margin-top:12px;border-left:4px solid var(--low);break-inside:avoid}
+.finding.Critical{border-left-color:var(--crit)} .finding.High{border-left-color:var(--high)} .finding.Medium{border-left-color:var(--med)}
+.f-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.f-head h4{font-size:10.5pt;font-weight:700;color:var(--text-strong)}
+.f-head h4 .id{font-family:var(--font-mono);font-weight:500;font-size:8.5pt;color:var(--text-dim);margin-right:8px}
+.finding p{font-size:9.5pt}
+.urls{margin-top:9px;font-family:var(--font-mono);font-size:8pt;color:var(--text)}
+.urls b{display:block;font-size:8.5pt;margin-bottom:3px}
+.rec{margin-top:10px;background:var(--subtle);border-radius:10px;padding:10px 14px}
+.rec .t{font-family:var(--font-mono);font-size:7.5pt;color:var(--primary);font-weight:500;letter-spacing:.4px;margin-bottom:3px}
+.rec p{font-size:9.5pt;color:var(--text-strong)}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-family:var(--font-mono);font-size:7.5pt;font-weight:500;white-space:nowrap;border:1px solid currentColor}
+.pill::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.p-Critical{color:var(--crit);background:var(--crit-bg)} .p-High{color:var(--high);background:var(--high-bg)}
+.p-Medium{color:var(--med);background:var(--med-bg)} .p-Low{color:var(--low);background:var(--low-bg)}
+.p-Pass{color:var(--pass);background:var(--pass-bg)} .p-Nodata{color:var(--low);background:var(--low-bg)}
+.p-Info{color:var(--med);background:var(--med-bg)}
+
+/* tables */
+.tbl{background:#fff;border-radius:14px;box-shadow:var(--shadow-tier1);overflow:hidden;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:8.3pt}
+thead{display:table-header-group}
+tr{break-inside:avoid}
+th{font-family:var(--font-mono);font-weight:500;font-size:7.3pt;color:var(--text-dim);text-align:left;padding:8px 9px;border-bottom:1px solid var(--rule-strong);background:#fff}
+td{padding:5px 9px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--text)}
+tr:last-child td{border-bottom:0}
+td.k{font-weight:700;color:var(--text-strong)}
+td.u{font-family:var(--font-mono);font-size:7.6pt;color:var(--text-strong)}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-mono);white-space:nowrap}
+.src{font-family:var(--font-mono);font-size:7.6pt;color:var(--text-dim);margin-top:7px;line-height:1.5}
+
+/* status list */
+.slist{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:6px 18px;margin-top:12px}
+.srow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule);break-inside:avoid}
+.srow:last-child{border-bottom:0}
+.srow .t{font-weight:700;color:var(--text-strong);font-size:9.8pt}
+.srow .d{font-size:8.6pt;color:var(--text-dim)}
+
+/* bars */
+.chart{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:16px 18px;margin-top:12px;break-inside:avoid}
+.chart h3{font-size:10.5pt} .chart .sub{font-size:8.5pt;color:var(--text-dim);margin:2px 0 12px}
+.brow{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:8.6pt}
+.brow .lab{text-align:right;color:var(--text)}
+.btrack{height:17px;border-left:1px solid var(--rule-strong)}
+.bfill{height:100%;border-radius:0 5px 5px 0;background:#c4bcfb}
+.bfill.hot{background:var(--primary)} .bfill.crit{background:var(--crit)} .bfill.high{background:var(--high)}
+.brow .v{font-family:var(--font-mono);font-weight:700;color:var(--text-strong);font-size:8.3pt}
+.stack{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:6px 0}
+.stack span{display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-mono);font-size:8pt;font-weight:700}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:8.3pt;color:var(--text);margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.srow-chart{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font-size:8.6pt}
+.srow-chart .lab{text-align:right}
+
+/* plan */
+.plan{background:#fff;border-radius:18px;box-shadow:var(--shadow-tier1);padding:14px 18px;margin-top:12px;break-inside:avoid}
+.plan .callout-label{color:var(--primary)}
+.plan h4{font-size:10.5pt;font-weight:700;color:var(--text-strong);margin-bottom:6px}
+.plan ul{list-style:none}
+.plan li{position:relative;padding:4px 0 4px 20px;font-size:9.4pt}
+.plan li::before{content:'';position:absolute;left:2px;top:10px;width:7px;height:7px;border-radius:2px;background:#c4bcfb}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid2 > *{margin-top:0}
+footer{margin-top:18px;padding-top:10px;border-top:1px solid var(--rule-strong);font-family:var(--font-mono);font-size:7.6pt;color:var(--text-dim);line-height:1.7}
+.pri-head{display:flex;align-items:center;gap:10px;margin-top:18px}
+.pri-head h3{font-size:13pt;font-weight:900;letter-spacing:-.4px}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="topbar">
+  <div class="brand">
+<svg class="atarim-logo" viewBox="0 0 291 80" xmlns="http://www.w3.org/2000/svg" fill="none" aria-label="Atarim">
+  <path d="M70.038 57.6165L55.7483 62.8644L63.6592 78.1047L80.6972 78.0848L70.038 57.6165Z" fill="#052055"/>
+  <path d="M40.3442 0.381104L0 78.0849H17.0475L40.3391 33.1781L48.7368 49.3569L63.0266 44.1089L40.3442 0.381104Z" fill="#052055"/>
+  <path d="M17.0106 78.1106L27.9428 57.0615L78.8349 37.7051L17.0106 78.1106Z" fill="#6D5DF3"/>
+  <path d="M108.642 68.0594V78.9102H102.13C97.4883 78.9102 93.87 77.7752 91.2747 75.5053C88.6793 73.2359 87.3817 69.5317 87.3821 64.3927V47.7799H82.2915V37.1537H87.3821V26.9763H100.183V37.1537H108.568V47.7799H100.183V64.5425C100.183 65.79 100.483 66.688 101.082 67.2365C101.68 67.7858 102.679 68.0601 104.076 68.0594L108.642 68.0594Z" fill="#052055"/>
+  <path d="M115.641 46.6573C117.262 43.4149 119.471 40.9206 122.266 39.1743C125.071 37.4253 128.318 36.5163 131.624 36.5551C134.568 36.5551 137.151 37.1538 139.372 38.351C141.472 39.4367 143.242 41.0646 144.5 43.0655V37.1538H157.301V78.9103H144.5V72.9986C143.2 74.9913 141.408 76.6151 139.297 77.7131C137.076 78.9103 134.493 79.509 131.549 79.509C128.263 79.5402 125.038 78.6174 122.266 76.8524C119.471 75.0821 117.262 72.5627 115.641 69.2942C114.019 66.0275 113.208 62.2484 113.208 57.957C113.208 53.6671 114.019 49.9005 115.641 46.6573ZM141.842 50.474C141.006 49.6018 140.002 48.9071 138.891 48.4314C137.779 47.9556 136.584 47.7087 135.375 47.7052C134.166 47.7017 132.969 47.9417 131.855 48.411C130.741 48.8803 129.733 49.5692 128.891 50.4366C127.119 52.2581 126.234 54.7649 126.234 57.957C126.234 61.1505 127.12 63.6823 128.891 65.5527C129.722 66.4355 130.724 67.1397 131.836 67.6222C132.948 68.1048 134.147 68.3554 135.359 68.359C136.571 68.3625 137.771 68.1187 138.886 67.6426C140.001 67.1665 141.007 66.4681 141.842 65.5901C143.613 63.745 144.499 61.2255 144.5 58.0319C144.5 54.84 143.614 52.3207 141.842 50.474Z" fill="#052055"/>
+  <path d="M184.998 38.6879C187.267 37.36 189.855 36.6745 192.484 36.7048V50.2496H188.966C185.771 50.2496 183.376 50.9356 181.779 52.3076C180.181 53.6802 179.383 56.0873 179.384 59.5289V78.9106H166.583V37.154H179.384V44.1133C180.806 41.8915 182.729 40.0334 184.998 38.6879Z" fill="#052055"/>
+  <path d="M211.424 37.1538V78.9104H198.622V37.1538H211.424Z" fill="#052055"/>
+  <path d="M286.396 41.4191C289.466 44.562 291 48.9273 291 54.515V78.9104H278.274V56.2361C278.274 53.5421 277.563 51.4592 276.141 49.9874C274.718 48.5166 272.759 47.7808 270.264 47.7801C267.767 47.7801 265.809 48.5158 264.388 49.9874C262.965 51.4595 262.254 53.5424 262.254 56.2361V78.9104H249.527V56.2361C249.527 53.5421 248.816 51.4592 247.394 49.9874C245.971 48.5166 244.013 47.7808 241.517 47.7801C239.021 47.7801 237.062 48.5158 235.641 49.9874C234.219 51.4595 233.507 53.5424 233.507 56.2361V78.9104H220.706V37.1538H233.507V42.3921C234.842 40.6156 236.589 39.1902 238.598 38.2388C240.819 37.1887 243.253 36.6638 245.71 36.7046C248.854 36.7046 251.661 37.3781 254.131 38.7251C256.578 40.0493 258.592 42.0497 259.933 44.4874C261.414 42.1603 263.445 40.2329 265.847 38.8748C268.323 37.4331 271.141 36.6835 274.007 36.7046C279.197 36.7046 283.326 38.2761 286.396 41.4191Z" fill="#052055"/>
+  <path d="M202.508 22.299C202.396 21.8634 202.168 21.4658 201.85 21.1477C201.532 20.8296 201.135 20.6026 200.699 20.4902L192.977 18.4989C192.845 18.4615 192.729 18.3822 192.647 18.2729C192.564 18.1636 192.519 18.0304 192.519 17.8934C192.519 17.7565 192.564 17.6233 192.647 17.514C192.729 17.4047 192.845 17.3254 192.977 17.288L200.699 15.2954C201.135 15.1832 201.532 14.9563 201.85 14.6384C202.168 14.3206 202.395 13.9233 202.508 13.4879L204.499 5.76566C204.536 5.63339 204.615 5.51686 204.725 5.43385C204.834 5.35084 204.968 5.30591 205.105 5.30591C205.243 5.30591 205.376 5.35084 205.486 5.43385C205.595 5.51686 205.674 5.63339 205.711 5.76566L207.701 13.4879C207.814 13.9235 208.041 14.3211 208.359 14.6392C208.677 14.9573 209.075 15.1843 209.51 15.2967L217.232 17.2867C217.365 17.3234 217.482 17.4026 217.566 17.5122C217.649 17.6217 217.694 17.7557 217.694 17.8934C217.694 18.0312 217.649 18.1652 217.566 18.2747C217.482 18.3843 217.365 18.4635 217.232 18.5002L209.51 20.4902C209.075 20.6026 208.677 20.8296 208.359 21.1477C208.041 21.4658 207.814 21.8634 207.701 22.299L205.71 30.0212C205.673 30.1535 205.594 30.27 205.484 30.3531C205.375 30.4361 205.241 30.481 205.104 30.481C204.967 30.481 204.833 30.4361 204.724 30.3531C204.614 30.27 204.535 30.1535 204.498 30.0212L202.508 22.299Z" fill="#6D5DF3"/>
+  <path d="M215.174 6.56494V11.5998" stroke="#6D5DF3" stroke-width="1.52" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M217.692 9.08228H212.657" stroke="#6D5DF3" stroke-width="1.52" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M195.035 24.187V26.7045" stroke="#6D5DF3" stroke-width="1.52" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M196.294 25.4456H193.776" stroke="#6D5DF3" stroke-width="1.52" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+    <span class="brand-tag">SEO audit</span>
+  </div>
+  <div class="topmeta">reactivehomeloans.com.au · report <b>7 Oct 2026</b> · <b>≈133</b> URLs</div>
+</div>
+
+<div class="eyebrow"><span class="eyebrow-dot"></span>Pre-project baseline · Screaming Frog crawl · 7 October 2026</div>
+<h1>SEO audit for <span style="color:var(--primary)">reactivehomeloans</span><span style="color:var(--accent-deep)">.com.au</span></h1>
+<p class="lede">Reactive Home Loans, home and commercial finance (Australia). This report records the technical and on-page condition of the site before any SEO work begins, so every change made from here can be measured against a fixed starting point.</p>
+
+<div class="tiles">
+  <div class="tile"><div class="n">9</div><div class="l">HTML pages crawled</div><div class="d">Within roughly 133 URLs assessed in total. No internal 404s or server errors were found.</div></div>
+  <div class="tile"><div class="n" style="color:var(--crit)">39</div><div class="l">Insecure HTTP URLs</div><div class="d">29.32% of URLs crawled. One form also sits on an HTTP page and submits to an HTTP address.</div></div>
+  <div class="tile"><div class="n" style="color:var(--high)">8</div><div class="l">Pages with no canonical tag</div><div class="d">47.06% of pages assessed. One more page points its canonical at a different URL.</div></div>
+  <div class="tile"><div class="n" style="color:var(--pass)">92</div><div class="l">PageSpeed SEO score (mobile)</div><div class="d">The one failed check is a "Resources" menu link that has no destination.</div></div>
+</div>
+
+<div class="toc">
+  <div class="label">Contents</div>
+  <ol>
+    <li><span>01</span>Executive summary</li><li><span>02</span>SEO health overview</li><li><span>03</span>Key findings</li><li><span>04</span>Technical SEO</li><li><span>05</span>Crawlability &amp; indexability</li><li><span>06</span>On-page SEO</li><li><span>07</span>Metadata analysis</li><li><span>08</span>Heading structure</li><li><span>09</span>URL &amp; canonical</li>
+    <li><span>10</span>Redirects &amp; status codes</li><li><span>11</span>Internal linking</li><li><span>12</span>Image SEO</li><li><span>13</span>Duplicate &amp; thin content</li><li><span>14</span>Priority issues</li><li><span>15</span>Action plan</li><li><span>16</span>Baseline summary</li><li><span>17</span>What this audit could not measure</li><li></li>
+  </ol>
+</div>
+
+<!-- 01 -->
+<section class="page-break">
+  <div class="label">01 — Executive summary</div>
+  <h2>A small, clean site. <span class="ul-grad">Security</span> comes first.</h2>
+  <div class="prose">
+    <p>Structurally this is a tidy website. The crawl found <b>9 HTML pages</b>, short and readable web addresses, <b>no broken internal pages</b>, <b>no server errors</b> and no duplicate page titles. Google's PageSpeed Insights gives it an SEO score of <b>92/100</b> on mobile. That is a good starting point.</p>
+    <p>The biggest problem is <b>security and trust</b>. Screaming Frog found <b>39 URLs still on insecure HTTP</b>, and one form sits on an HTTP page and sends its data to an HTTP address. For a finance business whose visitors enter personal and financial details, this comes before any ranking work.</p>
+    <p>The next problem is how the site <i>describes itself</i> to search engines. <b>8 pages have no canonical tag</b> and 1 points its canonical elsewhere. The <b>Calculators page has no H1</b>. Up to <b>4 pages have no meta description</b>, and 2 titles are long enough to be cut off. Three pages carry only about <b>110–115 words</b>.</p>
+    <p>None of this needs a rebuild. Most fixes are settings changes at the hosting, security plugin and SEO plugin level, and the critical items can be done in the first two weeks.</p>
+  </div>
+  <div class="callout crit"><div class="callout-label">MOST URGENT</div><h4>HTTPS is not enforced everywhere, including on a form</h4><p>Screaming Frog reports <b>39 HTTP URLs</b> (29.32% of all URLs), <b>Form on HTTP URL</b> (1) and <b>Form URL Insecure</b> (1). Anything typed into that form can be read in transit, and browsers label pages like this "Not Secure".</p></div>
+  <div class="callout high"><div class="callout-label">HIGHEST VOLUME</div><h4>Almost half the pages give Google no canonical signal</h4><p><b>8 pages</b> (47.06%) have no canonical tag. With HTTP and HTTPS versions of URLs both reachable, Google has to guess which version is the master copy.</p></div>
+  <div class="callout"><div class="callout-label">ALREADY STRONG</div><h4>Status codes and URL structure need no work</h4><p>There are no internal 4xx or 5xx errors and only 2 internal redirects. No URL-structure issues were flagged, there are no missing or duplicate titles, and no missing image alt text was reported. These areas can be left alone.</p></div>
+</section>
+
+<!-- 02 -->
+<section class="page-break">
+  <div class="label">02 — Website SEO health overview</div>
+  <h2>Where the site stands, category by category</h2>
+  <p class="sec-lede">Each rating comes only from what the crawl actually measured. Categories the export could not assess are marked as such rather than guessed at.</p>
+  <div class="grid2">
+  <div class="slist">
+    <div class="srow"><div><div class="t">HTTP status codes</div><div class="d">No internal 4xx or 5xx; 2 internal redirects</div></div><span class="pill p-Pass">Healthy</span></div>
+    <div class="srow"><div><div class="t">URL structure</div><div class="d">No URL issues flagged; lowercase, hyphenated</div></div><span class="pill p-Pass">Healthy</span></div>
+    <div class="srow"><div><div class="t">Page titles present &amp; unique</div><div class="d">No missing or duplicate titles flagged</div></div><span class="pill p-Pass">Healthy</span></div>
+    <div class="srow"><div><div class="t">Image alt text</div><div class="d">No missing alt text flagged (≈45 images)</div></div><span class="pill p-Pass">Healthy</span></div>
+    <div class="srow"><div><div class="t">HTTPS &amp; security</div><div class="d">39 HTTP URLs, insecure form</div></div><span class="pill p-Critical">Critical</span></div>
+    <div class="srow"><div><div class="t">Canonicalisation</div><div class="d">8 missing, 1 canonicalised</div></div><span class="pill p-High">Needs work</span></div>
+    <div class="srow"><div><div class="t">Crawlability</div><div class="d">1 no-response URL, 1 uncrawlable menu link</div></div><span class="pill p-High">Needs work</span></div>
+  </div>
+  <div class="slist">
+    <div class="srow"><div><div class="t">Heading structure</div><div class="d">1 page with no H1; order issues on 4</div></div><span class="pill p-High">Needs work</span></div>
+    <div class="srow"><div><div class="t">Meta descriptions</div><div class="d">1–4 missing, 1–3 over length</div></div><span class="pill p-Medium">Monitor</span></div>
+    <div class="srow"><div><div class="t">Meta titles</div><div class="d">2 of 9 exceed 60 characters</div></div><span class="pill p-Medium">Monitor</span></div>
+    <div class="srow"><div><div class="t">Content depth</div><div class="d">2–3 pages around 110–115 words</div></div><span class="pill p-Medium">Monitor</span></div>
+    <div class="srow"><div><div class="t">Security headers</div><div class="d">HSTS, CSP and others missing on most URLs</div></div><span class="pill p-Low">Low</span></div>
+    <div class="srow"><div><div class="t">XML sitemap</div><div class="d">Not present in this export</div></div><span class="pill p-Nodata">No data</span></div>
+    <div class="srow"><div><div class="t">Core Web Vitals</div><div class="d">Not present in this export</div></div><span class="pill p-Nodata">No data</span></div>
+  </div>
+  </div>
+
+  <div class="chart">
+    <h3>What Screaming Frog flagged</h3>
+    <div class="sub">27 checks failed. Shown by type and by Screaming Frog's own priority rating.</div>
+    <div class="srow-chart"><span class="lab">By type</span><div class="stack"><span style="width:18.52%;background:var(--crit)">5</span><span style="width:48.15%;background:var(--high)">13</span><span style="width:33.33%;background:var(--primary)">9</span></div></div>
+    <div class="srow-chart"><span class="lab">By priority</span><div class="stack"><span style="width:18.52%;background:var(--crit)">5</span><span style="width:18.52%;background:var(--med)">5</span><span style="width:62.96%;background:#9aa0ad">17</span></div></div>
+    <div class="legend"><span><i style="background:var(--crit)"></i>Issues 5 / High 5</span><span><i style="background:var(--high)"></i>Warnings 13</span><span><i style="background:var(--primary)"></i>Opportunities 9</span><span><i style="background:var(--med)"></i>Medium 5</span><span><i style="background:#9aa0ad"></i>Low 17</span></div>
+  </div>
+
+  <div class="chart">
+    <h3>Crawl scope by group</h3>
+    <div class="sub">The export doesn't state totals. Each size below is calculated from Screaming Frog's own percentages (e.g. 4 URLs = 44.44% → 9 pages).</div>
+    <div class="brow"><span class="lab">All URLs, response codes</span><div class="btrack"><div class="bfill" style="width:100%"></div></div><span class="v">≈143</span></div>
+    <div class="brow"><span class="lab">All URLs, security</span><div class="btrack"><div class="bfill" style="width:93%"></div></div><span class="v">≈133</span></div>
+    <div class="brow"><span class="lab">Images</span><div class="btrack"><div class="bfill" style="width:31.5%"></div></div><span class="v">≈45</span></div>
+    <div class="brow"><span class="lab">Canonical / word-count base</span><div class="btrack"><div class="bfill" style="width:11.9%"></div></div><span class="v">≈17</span></div>
+    <div class="brow"><span class="lab">HTML pages</span><div class="btrack"><div class="bfill hot" style="width:6.3%"></div></div><span class="v">9</span></div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="page-break">
+  <div class="label">03 — Key findings</div>
+  <h2>The issues found, ranked by impact</h2>
+  <p class="sec-lede">Percentages are Screaming Frog's own, so each one uses the base for that check (see section 02). Rows marked "Audit" come from the supplementary page-level audit export; "PSI" rows from PageSpeed Insights. The crawl date is not recorded in the export.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>SEO issue</th><th>Current status</th><th class="num">URLs</th><th class="num">%</th><th>SEO impact</th><th>Priority</th></tr></thead>
+    <tbody id="kf"></tbody>
+  </table></div>
+</section>
+
+<!-- 04 -->
+<section class="page-break">
+  <div class="label">04 — Technical SEO audit</div>
+  <h2>Protocol, security and delivery</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Check</th><th>Result</th><th class="num">Count</th><th class="num">%</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td class="k">HTTPS coverage</td><td>HTTP URLs encountered in the crawl</td><td class="num">39</td><td class="num">29.32%</td><td><span class="pill p-Critical">Fix</span></td></tr>
+      <tr><td class="k">Form on HTTP page</td><td>Form served on an insecure page</td><td class="num">1</td><td class="num">0.75%</td><td><span class="pill p-Critical">Fix</span></td></tr>
+      <tr><td class="k">Form action URL</td><td>Form submits to an HTTP address</td><td class="num">1</td><td class="num">0.75%</td><td><span class="pill p-Critical">Fix</span></td></tr>
+      <tr><td class="k">HSTS header</td><td>Strict-Transport-Security missing</td><td class="num">93</td><td class="num">69.92%</td><td><span class="pill p-Medium">Add</span></td></tr>
+      <tr><td class="k">Content-Security-Policy</td><td>Header missing</td><td class="num">130</td><td class="num">97.74%</td><td><span class="pill p-Low">Harden</span></td></tr>
+      <tr><td class="k">X-Frame-Options</td><td>Header missing</td><td class="num">130</td><td class="num">97.74%</td><td><span class="pill p-Low">Harden</span></td></tr>
+      <tr><td class="k">X-Content-Type-Options</td><td>Header missing</td><td class="num">130</td><td class="num">97.74%</td><td><span class="pill p-Low">Harden</span></td></tr>
+      <tr><td class="k">Referrer-Policy</td><td>No secure policy set</td><td class="num">130</td><td class="num">97.74%</td><td><span class="pill p-Low">Harden</span></td></tr>
+      <tr><td class="k">Unsafe cross-origin links</td><td>target="_blank" without rel="noopener"</td><td class="num">9</td><td class="num">6.77%</td><td><span class="pill p-Low">Review</span></td></tr>
+      <tr><td class="k">Internal server errors (5xx)</td><td>None flagged</td><td class="num">0</td><td class="num">0%</td><td><span class="pill p-Pass">Pass</span></td></tr>
+      <tr><td class="k">Platform</td><td>WordPress 6.9.10 on PHP 8.3 (from site settings, context only)</td><td class="num">–</td><td class="num">–</td><td><span class="pill p-Info">Note</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="finding Critical"><div class="f-head"><h4><span class="id">TECH-01</span>39 URLs are still served over insecure HTTP</h4><span class="pill p-Critical">Critical</span></div>
+    <p>Screaming Frog found <b>39 HTTP URLs</b>, which is 29.32% of everything it crawled. Browsers mark HTTP pages "Not Secure", HTTPS is a confirmed Google ranking signal, and when both versions of a page exist, link value is split between them.</p>
+    <p>The export doesn't say whether these URLs already redirect to HTTPS or are linked directly. That is shown in the <i>Security › HTTP URLs Inlinks</i> bulk export.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Force HTTPS site-wide with a 301 redirect from HTTP to HTTPS, update every internal link, menu and image reference to HTTPS (a search-replace in WordPress), and then turn on HSTS.</p></div></div>
+
+  <div class="finding Critical"><div class="f-head"><h4><span class="id">TECH-02</span>A form sits on an HTTP page and submits to an HTTP address</h4><span class="pill p-Critical">Critical</span></div>
+    <p>Two separate Screaming Frog checks fail on the same form: <b>Form on HTTP URL</b> and <b>Form URL Insecure</b>. For a business taking loan enquiries, the details typed in can include names, phone numbers and financial information. All of it is sent unencrypted.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Identify the page (see <i>Bulk Export › Security › Form URL Insecure</i>), change the form's action URL to HTTPS, make sure the page itself only loads on HTTPS, and send a test enquiry to confirm submissions still arrive.</p></div></div>
+
+  <div class="finding Low"><div class="f-head"><h4><span class="id">TECH-03</span>Security response headers are missing on almost every URL</h4><span class="pill p-Low">Low</span></div>
+    <p>CSP, X-Frame-Options, X-Content-Type-Options and Referrer-Policy are each missing on <b>130 URLs (97.74%)</b>, and HSTS is missing on <b>93 (69.92%)</b>. Google doesn't rank on these headers, but they protect visitors from clickjacking and injected scripts. HSTS also directly supports TECH-01.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Set these headers once at server, CDN or security-plugin level, starting with HSTS after HTTPS is enforced. Test CSP carefully so the site's own scripts and forms keep working.</p></div></div>
+
+  <div class="callout gap"><div class="callout-label">DATA GAP</div><h4>Page speed was not measured in this export</h4><p>The only performance-related finding is <b>2 images missing width/height attributes</b> (section 12), which can cause layout shift. The export contains no response times, page weights or Core Web Vitals. The PageSpeed screenshot supplied covers the SEO category only. Run Lighthouse Performance on key pages to complete this baseline.</p></div>
+</section>
+
+<!-- 05 -->
+<section>
+  <div class="label">05 — Crawlability &amp; indexability</div>
+  <h2>What Google can reach, and what gets in its way</h2>
+  <p class="sec-lede">The export has no noindex, nofollow or robots.txt-blocked findings, so nothing appears to be excluded on purpose. Three things still get in the crawler's way.</p>
+  <div class="finding High"><div class="f-head"><h4><span class="id">CRAWL-01</span>One internal URL returned no response at all</h4><span class="pill p-High">High</span></div>
+    <p>Screaming Frog's <b>Internal No Response</b> check failed on 1 URL (0.70%). The server returned nothing, which is usually caused by a malformed link, a timeout or a firewall blocking the request. Anyone who follows that link, visitor or crawler, hits a dead end.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Export <i>Response Codes › Internal › No Response inlinks</i> to find the URL and the pages linking to it. Correct the link or the server rule, then re-test.</p></div></div>
+  <div class="finding High"><div class="f-head"><h4><span class="id">CRAWL-02</span>The "Resources" menu item cannot be followed by search engines</h4><span class="pill p-High">High</span></div>
+    <p>PageSpeed Insights failed the <b>Links are not crawlable</b> check on <code>&lt;a aria-expanded="false" class="menu-link"&gt;</code>, labelled "Resources". It has no <code>href</code>, so it opens a dropdown for visitors but gives search engines nothing to follow. It sits in the main navigation, so any page reached only through it is at risk of being missed.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Point "Resources" to a real Resources page, or confirm that every page in its dropdown is also linked normally in the navigation or footer.</p></div></div>
+  <div class="finding Medium"><div class="f-head"><h4><span class="id">CRAWL-03</span>The three legal pages have no internal links pointing to them</h4><span class="pill p-Medium">Medium</span></div>
+    <p>The supplementary audit flags these pages as orphans: they are known to exist but nothing on the site links to them. Screaming Frog cannot find a page like this by following links. For a finance business, the privacy policy and disclaimer are also trust and compliance pages that visitors expect to find.</p>
+    <div class="urls"><b>Affected URLs</b>/privacy-policy/ · /terms-and-conditions/ · /disclaimer/</div>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Add all three to the site footer. Then decide whether Terms and Disclaimer should be indexed at all (see DUP-01).</p></div></div>
+  <div class="slist">
+    <div class="srow"><div><div class="t">robots.txt rules</div><div class="d">Directives not included in this export</div></div><span class="pill p-Nodata">No data</span></div>
+    <div class="srow"><div><div class="t">XML sitemap</div><div class="d">No sitemap data in the crawl</div></div><span class="pill p-Nodata">No data</span></div>
+    <div class="srow"><div><div class="t">Search Console coverage</div><div class="d">Requires GSC access</div></div><span class="pill p-Nodata">No data</span></div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section>
+  <div class="label">06 — On-page SEO analysis</div>
+  <h2>Page by page, where the gaps sit</h2>
+  <p class="sec-lede">Screaming Frog reports counts without URLs, so this table uses the supplementary audit, which names the pages. The other 2 of the 9 HTML pages had no page-level findings.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>Title</th><th>Meta description</th><th>H1</th><th>Heading order</th><th class="num">Words</th><th>Inlinks</th></tr></thead>
+    <tbody>
+      <tr><td class="u">/ (homepage)</td><td><span class="pill p-Medium">64 chars</span></td><td>–</td><td>–</td><td>–</td><td class="num">–</td><td>–</td></tr>
+      <tr><td class="u">/loan-types/</td><td><span class="pill p-Medium">62 chars</span></td><td>–</td><td>–</td><td>–</td><td class="num">–</td><td>–</td></tr>
+      <tr><td class="u">/loan-types/commercial-asset-finance/</td><td>–</td><td><span class="pill p-High">Missing</span></td><td>–</td><td>–</td><td class="num">–</td><td>–</td></tr>
+      <tr><td class="u">/calculators/</td><td>–</td><td>–</td><td><span class="pill p-High">Missing</span></td><td>–</td><td class="num">115</td><td>–</td></tr>
+      <tr><td class="u">/terms-and-conditions/</td><td>–</td><td><span class="pill p-Medium">Missing</span></td><td>–</td><td><span class="pill p-Low">Skips</span></td><td class="num">112</td><td><span class="pill p-Medium">Orphan</span></td></tr>
+      <tr><td class="u">/disclaimer/</td><td>–</td><td><span class="pill p-Medium">Missing</span></td><td>–</td><td><span class="pill p-Low">Skips</span></td><td class="num">110</td><td><span class="pill p-Medium">Orphan</span></td></tr>
+      <tr><td class="u">/privacy-policy/</td><td>–</td><td><span class="pill p-Medium">Missing</span></td><td>–</td><td><span class="pill p-Low">Skips</span></td><td class="num">–</td><td><span class="pill p-Medium">Orphan</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="src">"–" means no issue was reported for that page in that column. Word counts are given only for pages flagged as thin.</div>
+  <div class="finding High"><div class="f-head"><h4><span class="id">PAGE-01</span>The Calculators page has no H1 and only 115 words</h4><span class="pill p-High">High</span></div>
+    <p>Calculators is a natural landing page for searches like "home loan repayment calculator", but it gives Google the least to go on. It has no main heading and 115 words of readable text. If the calculators are built in JavaScript, Google may see even less than a visitor does.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Add one descriptive H1 (for example "Home loan calculators"), give each calculator a short explanation of what it works out, and confirm the text is visible in the page source rather than only rendered by script.</p></div></div>
+  <div class="callout"><div class="callout-label">WHERE THE TWO EXPORTS DIFFER</div><h4>Missing descriptions: 1 vs 4. Thin pages: 2 vs 3.</h4><p>Screaming Frog counts 1 missing meta description and 2 low-content pages. The supplementary audit counts 4 and 3. The likely causes are different crawl times and different ways of defining the main content area. The plan uses the larger figures so nothing is missed. Screaming Frog's figures remain the official baseline, and the re-crawl will use the same Screaming Frog settings so before and after are comparable.</p></div>
+</section>
+
+<!-- 07 -->
+<section>
+  <div class="label">07 — Metadata analysis</div>
+  <h2>Titles and descriptions, the site's shopfront in search results</h2>
+  <p class="sec-lede">Every page has a unique title, which is the hard part done. The gaps are length and missing descriptions.</p>
+  <div class="chart">
+    <h3>Metadata coverage across the 9 HTML pages</h3>
+    <div class="sub">Each bar totals 9 pages. Based on Screaming Frog counts. Descriptions show the larger figure from the supplementary audit.</div>
+    <div class="srow-chart"><span class="lab">Title tag</span><div class="stack"><span style="width:77.78%;background:var(--pass)">7</span><span style="width:22.22%;background:var(--high)">2</span></div></div>
+    <div class="srow-chart"><span class="lab">Meta description</span><div class="stack"><span style="width:33.33%;background:var(--pass)">3</span><span style="width:22.22%;background:var(--high)">2</span><span style="width:44.45%;background:var(--crit)">4</span></div></div>
+    <div class="srow-chart"><span class="lab">H1 heading</span><div class="stack"><span style="width:77.78%;background:var(--pass)">7</span><span style="width:11.11%;background:var(--high)">1</span><span style="width:11.11%;background:var(--crit)">1</span></div></div>
+    <div class="legend"><span><i style="background:var(--pass)"></i>Present and passing</span><span><i style="background:var(--high)"></i>Present but needs work</span><span><i style="background:var(--crit)"></i>Missing entirely</span></div>
+  </div>
+  <div class="src">Meta description "needs work" is shown as 2 because the 3 pages over 985px may overlap the 1 over 155 characters and the missing ones. The page-level split will be confirmed in the re-crawl.</div>
+  <h3 style="margin-top:16px">Meta title findings</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Issue</th><th>Current status</th><th class="num">URLs</th><th class="num">%</th><th>SEO impact</th><th>Priority</th><th>Recommended action</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Missing title</td><td>None flagged</td><td class="num">0</td><td class="num">0%</td><td>—</td><td><span class="pill p-Pass">Pass</span></td><td>No action required.</td></tr>
+      <tr><td class="k">Duplicate titles</td><td>None flagged</td><td class="num">0</td><td class="num">0%</td><td>—</td><td><span class="pill p-Pass">Pass</span></td><td>No action required.</td></tr>
+      <tr><td class="k">Over 60 characters</td><td>Home 64, Loan Types 62</td><td class="num">2</td><td class="num">22.22%</td><td>Truncated in results</td><td><span class="pill p-Medium">Medium</span></td><td>Rewrite to 50–60 characters with the main keyword in the first 40.</td></tr>
+      <tr><td class="k">Over 561 pixels</td><td>Same 2 titles</td><td class="num">2</td><td class="num">22.22%</td><td>Truncated in results</td><td><span class="pill p-Medium">Medium</span></td><td>Check pixel width in a SERP preview when rewriting.</td></tr>
+    </tbody>
+  </table></div>
+  <h3 style="margin-top:16px">Meta description findings</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Issue</th><th>Current status</th><th class="num">URLs</th><th class="num">%</th><th>SEO impact</th><th>Priority</th><th>Recommended action</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Missing entirely</td><td>SF 1; Audit 4: Commercial Asset Finance + 3 legal pages</td><td class="num">1 (4)</td><td class="num">11.11%</td><td>Google writes its own snippet</td><td><span class="pill p-High">High</span></td><td>Write a unique 120–155 character description, starting with Commercial Asset Finance.</td></tr>
+      <tr><td class="k">Over 155 characters</td><td>1 description</td><td class="num">1</td><td class="num">11.11%</td><td>Cut off mid-sentence</td><td><span class="pill p-Low">Low</span></td><td>Trim with the key benefit first.</td></tr>
+      <tr><td class="k">Over 985 pixels</td><td>Google's display limit</td><td class="num">3</td><td class="num">33.33%</td><td>Cut off on desktop</td><td><span class="pill p-Low">Low</span></td><td>Prioritise these over the character-count case.</td></tr>
+      <tr><td class="k">Duplicate across pages</td><td>None flagged</td><td class="num">0</td><td class="num">0%</td><td>—</td><td><span class="pill p-Pass">Pass</span></td><td>No action required.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="finding Medium"><div class="f-head"><h4><span class="id">META-01</span>A money page has no meta description</h4><span class="pill p-Medium">Medium</span></div>
+    <p><code>/loan-types/commercial-asset-finance/</code> is a service page with real commercial intent, and it has no description. Google will build a snippet from whatever text it finds first on the page, which is rarely the most persuasive summary. The three legal pages are missing descriptions too, but they matter far less.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>In the SEO plugin, write a description for Commercial Asset Finance first, naming the finance types covered and a reason to enquire. Then add short factual ones to the legal pages.</p></div></div>
+</section>
+
+<!-- 08 -->
+<section>
+  <div class="label">08 — Heading structure</div>
+  <h2>H1 and H2 hierarchy</h2>
+  <p class="sec-lede">An H1 is the page's main headline. H2s and H3s mark its sections, in order, the way a table of contents would.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Issue</th><th>Current status</th><th class="num">URLs</th><th class="num">%</th><th>SEO impact</th><th>Priority</th><th>Recommended action</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Missing H1</td><td>/calculators/</td><td class="num">1</td><td class="num">11.11%</td><td>No clear topic signal</td><td><span class="pill p-High">High</span></td><td>Add one descriptive H1 matching the title.</td></tr>
+      <tr><td class="k">H1 not first heading</td><td>Another heading sits above the H1</td><td class="num">1</td><td class="num">11.11%</td><td>Muddled outline</td><td><span class="pill p-Low">Low</span></td><td>Make the H1 the first heading on the page.</td></tr>
+      <tr><td class="k">Heading levels skip</td><td>Terms, Disclaimer, Privacy (Audit)</td><td class="num">3</td><td class="num">33%</td><td>Structure &amp; accessibility</td><td><span class="pill p-Low">Low</span></td><td>Use H1 → H2 → H3 in order.</td></tr>
+      <tr><td class="k">Missing H2</td><td>1 page</td><td class="num">1</td><td class="num">11.11%</td><td>Harder to scan</td><td><span class="pill p-Low">Low</span></td><td>Add H2s for the main sections.</td></tr>
+      <tr><td class="k">Duplicate H2</td><td>Same H2 text on 3 pages</td><td class="num">3</td><td class="num">33.33%</td><td>Pages look alike</td><td><span class="pill p-Low">Low</span></td><td>Make section headings page-specific.</td></tr>
+      <tr><td class="k">Multiple H2s</td><td>7 pages</td><td class="num">7</td><td class="num">77.78%</td><td>Not a problem</td><td><span class="pill p-Pass">Pass</span></td><td>Normal; Screaming Frog flags it for review only.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="finding Low"><div class="f-head"><h4><span class="id">HEAD-01</span>Heading order breaks on four pages</h4><span class="pill p-Low">Low</span></div>
+    <p>On one page another heading appears above the H1. On the three legal pages the levels skip, for example jumping from H2 to H4. Neither is a ranking problem on its own, but both make the page outline harder for search engines and screen readers to follow. Screen readers matter for accessibility obligations.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>In the page editor, set the H1 as the first heading and step down one level at a time. Where a heading is only used for its size, change it to styled text instead.</p></div></div>
+</section>
+
+<!-- 09 -->
+<section>
+  <div class="label">09 — URL &amp; canonical analysis</div>
+  <h2>URLs are clean. Canonical tags are not.</h2>
+  <div class="grid2">
+  <div class="slist">
+    <div style="padding:10px 0 4px"><h3>URL structure</h3><div class="sub" style="font-size:8.5pt;color:var(--text-dim)">No URL issues flagged by Screaming Frog.</div></div>
+    <div class="srow"><div><div class="t">Lowercase only</div><div class="d">No uppercase flagged</div></div><span class="pill p-Pass">Pass</span></div>
+    <div class="srow"><div><div class="t">Hyphens, not underscores</div><div class="d">No underscores flagged</div></div><span class="pill p-Pass">Pass</span></div>
+    <div class="srow"><div><div class="t">No parameters</div><div class="d">None flagged</div></div><span class="pill p-Pass">Pass</span></div>
+    <div class="srow"><div><div class="t">Logical folders</div><div class="d">e.g. /loan-types/commercial-asset-finance/</div></div><span class="pill p-Pass">Pass</span></div>
+    <div class="srow"><div><div class="t">HTTPS on every URL</div><div class="d">39 HTTP URLs found</div></div><span class="pill p-Critical">Fail</span></div>
+  </div>
+  <div class="slist">
+    <div style="padding:10px 0 4px"><h3>Canonical tags</h3><div class="sub" style="font-size:8.5pt;color:var(--text-dim)">A canonical names the definitive version of a page.</div></div>
+    <div class="srow"><div><div class="t">No canonical tag</div><div class="d">8 pages (47.06%)</div></div><span class="pill p-High">High</span></div>
+    <div class="srow"><div><div class="t">Canonicalised elsewhere</div><div class="d">1 page (5.88%)</div></div><span class="pill p-High">High</span></div>
+    <div class="srow"><div><div class="t">Self-referencing</div><div class="d">Remainder of the ≈17 assessed</div></div><span class="pill p-Pass">Pass</span></div>
+  </div>
+  </div>
+  <div class="finding High"><div class="f-head"><h4><span class="id">CANON-01</span>Eight pages give Google no canonical signal</h4><span class="pill p-High">High</span></div>
+    <p>A canonical tag tells Google "this address is the master copy of this page". Without one, Google picks its own. That is a real risk on this site because <b>39 HTTP URLs</b> exist alongside their HTTPS versions, so the wrong version could be indexed or ranking signals split between the two.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Turn on self-referencing HTTPS canonicals in the SEO plugin so every indexable page outputs one automatically. Then confirm in the re-crawl that the count reaches 0.</p></div></div>
+  <div class="finding High"><div class="f-head"><h4><span class="id">CANON-02</span>One page tells Google to index a different URL</h4><span class="pill p-High">High</span></div>
+    <p>Screaming Frog classes 1 page as <b>Canonicalised</b>: its canonical points somewhere else, so it is excluded from search results. That is correct if it's a duplicate or HTTP variant. If it's a real page, it's being hidden from Google by mistake.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Identify the URL from the <i>Canonicals › Canonicalised</i> filter. Correct the canonical if the page should rank. If it's a variant, update internal links to point at the canonical version.</p></div></div>
+</section>
+
+<!-- 10 -->
+<section>
+  <div class="label">10 — Redirects &amp; HTTP status codes</div>
+  <h2>Mostly a clean bill of health</h2>
+  <p class="sec-lede">Almost every URL the crawler requested loaded successfully. Percentages use the ≈143 URLs checked for response codes.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Status</th><th>Meaning</th><th class="num">URLs</th><th class="num">%</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Internal 3xx redirects</td><td>Linked page has moved</td><td class="num">2</td><td class="num">1.40%</td><td><span class="pill p-Low">Low</span></td></tr>
+      <tr><td class="k">Internal 4xx</td><td>Broken internal link</td><td class="num">0</td><td class="num">0.0%</td><td><span class="pill p-Pass">None found</span></td></tr>
+      <tr><td class="k">Internal 5xx</td><td>Server failure</td><td class="num">0</td><td class="num">0.0%</td><td><span class="pill p-Pass">None found</span></td></tr>
+      <tr><td class="k">Internal no response</td><td>Server returned nothing</td><td class="num">1</td><td class="num">0.70%</td><td><span class="pill p-High">High</span></td></tr>
+      <tr><td class="k">External 4xx</td><td>Broken outbound link</td><td class="num">2</td><td class="num">1.40%</td><td><span class="pill p-Low">Low</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="finding Low"><div class="f-head"><h4><span class="id">STAT-01</span>Two internal links go through redirects, and two external links are broken</h4><span class="pill p-Low">Low</span></div>
+    <p>Each redirect adds a short delay for visitors and a little wasted effort for crawlers. The 2 broken external links send visitors to an error page on another site. Some sites return 403 to crawlers but load fine in a browser, so these need checking before they are removed.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Point the 2 internal links straight at their final URL and check for chains. Open each external link in a browser, then update or remove it.</p></div></div>
+  <div class="callout"><div class="callout-label">SCOPE NOTE</div><h4>This covers what the crawler could reach</h4><p>Server-level redirects such as HTTP → HTTPS or www → non-www show up here only when something links to them. Whether the 39 HTTP URLs already redirect will be confirmed from the inlinks export and Google Search Console.</p></div>
+</section>
+
+<!-- 11 -->
+<section>
+  <div class="label">11 — Internal linking analysis</div>
+  <h2>Navigation carries the site, with two gaps</h2>
+  <p class="sec-lede">Internal links pass authority around a site and tell Google which pages matter. The export doesn't include per-page inlink counts, so these findings come from the issue filters.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Issue</th><th>Current status</th><th class="num">URLs</th><th class="num">%</th><th>SEO impact</th><th>Priority</th><th>Recommended action</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Uncrawlable menu link</td><td>"Resources" has no href (PSI)</td><td class="num">1</td><td class="num">–</td><td>Link value cannot flow</td><td><span class="pill p-High">High</span></td><td>Give it a real destination.</td></tr>
+      <tr><td class="k">Orphan pages</td><td>3 legal pages (Audit)</td><td class="num">3</td><td class="num">33%</td><td>Hard to discover</td><td><span class="pill p-Medium">Medium</span></td><td>Link from the footer.</td></tr>
+      <tr><td class="k">Links with no anchor text</td><td>Empty link text or unlabelled linked images</td><td class="num">4</td><td class="num">44.44%</td><td>No context for Google or screen readers</td><td><span class="pill p-Low">Low</span></td><td>Add descriptive text, or alt text on linked logos and icons.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="finding Low"><div class="f-head"><h4><span class="id">LINK-01</span>Four pages contain links with no anchor text</h4><span class="pill p-Low">Low</span></div>
+    <p>Anchor text is the clickable wording of a link, and it tells Google what the destination is about. On 4 of the 9 pages at least one link has none. This is typically a logo, social icon or image button with no alt text.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Add alt text to linked images, such as "Reactive Home Loans home" on the logo, and replace any empty or icon-only text links with descriptive wording.</p></div></div>
+</section>
+
+<!-- 12 -->
+<section>
+  <div class="label">12 — Image SEO</div>
+  <h2>Images are in good shape</h2>
+  <p class="sec-lede">About 45 images were crawled. Only one image check failed.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Check</th><th>Result</th><th class="num">Images</th><th class="num">%</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Missing alt text</td><td>Not flagged</td><td class="num">0</td><td class="num">0%</td><td><span class="pill p-Pass">Pass</span></td></tr>
+      <tr><td class="k">Alt text over 100 characters</td><td>Not flagged</td><td class="num">0</td><td class="num">0%</td><td><span class="pill p-Pass">Pass</span></td></tr>
+      <tr><td class="k">Missing size attributes</td><td>No width/height in HTML</td><td class="num">2</td><td class="num">4.44%</td><td><span class="pill p-Low">Low</span></td></tr>
+      <tr><td class="k">File size / format</td><td>Not present in this export</td><td class="num">–</td><td class="num">–</td><td><span class="pill p-Nodata">No data</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="finding Low"><div class="f-head"><h4><span class="id">IMG-01</span>Two images have no width or height set</h4><span class="pill p-Low">Low</span></div>
+    <p>Without dimensions, the browser can't reserve space for an image, so text jumps when it loads. This shows up as Cumulative Layout Shift (CLS), one of Google's Core Web Vitals.</p>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Add width and height attributes that match each image's real size. Most WordPress image blocks do this automatically, so the culprits are likely theme or builder images.</p></div></div>
+  <div class="callout gap"><div class="callout-label">DATA GAP</div><h4>Alt text quality and file weight were not assessed</h4><p>Screaming Frog confirms alt text is <i>present</i>, but not that it is descriptive. File sizes and formats such as WebP aren't in this export. Exporting <i>Images › All</i> from the same crawl closes this gap without a re-crawl.</p></div>
+</section>
+
+<!-- 13 -->
+<section>
+  <div class="label">13 — Duplicate &amp; thin content</div>
+  <h2>No duplication. Thin pages are the real issue.</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Check</th><th>Result</th><th class="num">URLs</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Duplicate title tags</td><td>None flagged</td><td class="num">0</td><td><span class="pill p-Pass">Pass</span></td></tr>
+      <tr><td class="k">Duplicate meta descriptions</td><td>None flagged</td><td class="num">0</td><td><span class="pill p-Pass">Pass</span></td></tr>
+      <tr><td class="k">Duplicate H2</td><td>Same H2 on 3 pages</td><td class="num">3</td><td><span class="pill p-Low">Low</span></td></tr>
+      <tr><td class="k">Low content (&lt;200 words)</td><td>SF 2 pages (11.76%); Audit 3 pages at 110–115 words</td><td class="num">2 (3)</td><td><span class="pill p-Medium">Medium</span></td></tr>
+      <tr><td class="k">Near-duplicate detection</td><td>Not present in this export</td><td class="num">–</td><td><span class="pill p-Nodata">No data</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="finding Medium"><div class="f-head"><h4><span class="id">DUP-01</span>Three pages carry around 110 words each</h4><span class="pill p-Medium">Medium</span></div>
+    <p>The supplementary audit measures <b>Calculators at 115 words</b>, <b>Terms and Conditions at 112</b> and <b>Disclaimer at 110</b>. These pages need different fixes. Calculators is a page that should rank, so it needs supporting copy (PAGE-01). The legal pages rarely need to rank, and padding them adds nothing.</p>
+    <div class="urls"><b>Affected URLs</b>/calculators/ · 115 words &nbsp;·&nbsp; /terms-and-conditions/ · 112 words &nbsp;·&nbsp; /disclaimer/ · 110 words</div>
+    <div class="rec"><div class="t">RECOMMENDED ACTION</div><p>Expand Calculators with helpful context. For Terms and Disclaimer, keep the content as is, link them from the footer, and consider setting them to noindex so they don't dilute the site's topical focus.</p></div></div>
+</section>
+
+<!-- 14 -->
+<section class="page-break">
+  <div class="label">14 — Priority issues &amp; recommendations</div>
+  <h2>Everything found, in the order it should be fixed</h2>
+  <p class="sec-lede">Priority combines the likely cost to rankings, trust and enquiries with how quickly the issue can be fixed. Critical items put visitor data and credibility at risk.</p>
+  <div id="pri"></div>
+</section>
+
+<!-- 15 -->
+<section class="page-break">
+  <div class="label">15 — SEO action plan</div>
+  <h2>An eight-week sequence, ordered by dependency</h2>
+  <p class="sec-lede">Security and indexing come first, so the on-page work that follows is credited to the right, secure URLs.</p>
+  <div class="plan"><div class="callout-label">WEEK 1 · SECURE</div><h4>Close the trust gap</h4><ul>
+    <li>Export the 39 HTTP URLs with their inlinks; force a 301 redirect from HTTP to HTTPS site-wide</li>
+    <li>Search-replace internal http:// links, menus and image references to https://</li>
+    <li>Move the insecure form to HTTPS (page and action URL) and send a test enquiry</li>
+    <li>Find and fix the internal URL that returns no response</li>
+    <li>Check robots.txt and the XML sitemap, neither of which was captured in this export</li></ul></div>
+  <div class="plan"><div class="callout-label">WEEKS 2–4 · FOUNDATIONS</div><h4>Fix what every page depends on</h4><ul>
+    <li>Turn on self-referencing HTTPS canonicals; review the 1 canonicalised URL</li>
+    <li>Turn on HSTS once HTTPS is confirmed everywhere</li>
+    <li>Give the "Resources" menu item a real link</li>
+    <li>Add an H1 and supporting copy to Calculators</li>
+    <li>Write a meta description for Commercial Asset Finance and the 3 legal pages</li>
+    <li>Link the legal pages from the footer; decide on noindex for Terms and Disclaimer</li>
+    <li>Re-crawl to confirm the week 1 fixes registered</li></ul></div>
+  <div class="plan"><div class="callout-label">WEEKS 5–8 · OPTIMISE</div><h4>Sharpen what is already working</h4><ul>
+    <li>Rewrite the Home and Loan Types titles to 50–60 characters</li>
+    <li>Trim the 1–3 over-length meta descriptions</li>
+    <li>Fix heading order on the 4 affected pages; make duplicate and missing H2s specific</li>
+    <li>Add anchor or alt text to empty links on 4 pages; add size attributes to 2 images</li>
+    <li>Point 2 internal links past their redirects; fix or remove 2 broken external links</li>
+    <li>Add CSP, X-Frame-Options, X-Content-Type-Options and Referrer-Policy headers; add rel="noopener" to new-tab links</li></ul></div>
+  <div class="plan"><div class="callout-label">ONGOING · MEASURE</div><h4>Prove the work landed</h4><ul>
+    <li>Re-crawl monthly with identical Screaming Frog settings and compare against section 16</li>
+    <li>Run Lighthouse Performance on key pages to add Core Web Vitals to the baseline</li>
+    <li>Connect Google Search Console to track indexing, impressions and clicks</li>
+    <li>Re-run PageSpeed Insights SEO; target 100 once the menu link is fixed</li></ul></div>
+</section>
+
+<!-- 16 -->
+<section class="page-break">
+  <div class="label">16 — Before-SEO baseline summary</div>
+  <h2>The numbers to measure against</h2>
+  <p class="sec-lede">Every figure comes from the Screaming Frog export unless marked Audit or PSI. Re-run the same crawl with the same settings after each phase and compare like for like.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Metric</th><th class="num">Baseline · Oct 2026</th><th class="num">Target</th><th>Why it matters</th></tr></thead>
+    <tbody id="base"></tbody>
+  </table></div>
+  <div class="src">Crawl configuration for repeat runs: Screaming Frog SEO Spider, same configuration as this crawl. The crawl date and settings aren't recorded in the export, so record both on the next run. Sizes marked ≈ are calculated from Screaming Frog's percentages.</div>
+</section>
+
+<!-- 17 -->
+<section class="page-break">
+  <div class="label">17 — What this audit could not measure</div>
+  <h2>Gaps, stated plainly</h2>
+  <p class="sec-lede">These are standard parts of a full SEO audit. None of them appear in the data supplied, so no findings are claimed about them either way.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Not assessed</th><th>Why it is missing</th><th>What would be needed</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Affected URLs per issue</td><td>Issues Overview gives counts only</td><td>Screaming Frog bulk exports for HTTP URLs, canonicals, redirects and no-response inlinks.</td></tr>
+      <tr><td class="k">XML sitemap</td><td>No sitemap data in the crawl</td><td>Crawl with "Crawl Linked XML Sitemaps" on, or supply the sitemap URL.</td></tr>
+      <tr><td class="k">robots.txt directives</td><td>Not included in this export</td><td>Fetch robots.txt directly or use Screaming Frog's tester.</td></tr>
+      <tr><td class="k">Core Web Vitals &amp; speed</td><td>No performance data in the export</td><td>Lighthouse or PageSpeed Insights Performance, or the PSI API connected to the crawl.</td></tr>
+      <tr><td class="k">Crawl depth &amp; inlink counts</td><td>Issues export has no per-page link data</td><td>Internal › HTML export from the same crawl.</td></tr>
+      <tr><td class="k">Structured data / schema</td><td>Not in this export</td><td>Re-crawl with Structured Data validation. FinancialService and LocalBusiness schema are relevant.</td></tr>
+      <tr><td class="k">Open Graph / social tags</td><td>Not in this export</td><td>Per-page check of og:image and og:description.</td></tr>
+      <tr><td class="k">Near-duplicate content</td><td>Not in this export</td><td>Enable Near Duplicates and run Crawl Analysis.</td></tr>
+      <tr><td class="k">Index coverage as Google sees it</td><td>A crawler reports what it can reach</td><td>Google Search Console Pages report.</td></tr>
+      <tr><td class="k">Rankings, traffic, backlinks</td><td>Outside the scope of a crawler</td><td>Search Console, Google Analytics 4 and a backlink tool.</td></tr>
+    </tbody>
+  </table></div>
+  <footer>
+    SEO baseline audit · reactivehomeloans.com.au · Reactive Home Loans<br>
+    Source data: Screaming Frog SEO Spider Issues Overview export (27 issue rows); supplementary page-level audit export (16 rows, 7 URLs); PageSpeed Insights mobile SEO report.<br>
+    All counts and percentages are taken directly from those sources. Sizes marked ≈ are calculated from Screaming Frog's percentages. Items the data does not cover are listed in section 17 and are not estimated.<br>
+    Prepared by Atarim · 7 October 2026.
+  </footer>
+</section>
+
+<script>
+const I=[
+ ["Critical","Insecure HTTP URLs","39 HTTP URLs found in the crawl","39","29.32%","\"Not Secure\" warnings; split link signals","Force HTTPS with 301s; update internal links to HTTPS."],
+ ["Critical","Form on an HTTP page","Form served on an insecure page","1","0.75%","Enquiry data unencrypted; lost trust","Serve the form page only over HTTPS."],
+ ["Critical","Form submits to HTTP","Form action URL uses HTTP","1","0.75%","Data sent in the clear","Change the action URL to HTTPS; test a submission."],
+ ["High","Missing canonical tag","No canonical on 8 pages","8","47.06%","Google picks the version to index","Turn on self-referencing HTTPS canonicals."],
+ ["High","Canonicalised page","Canonical points to a different URL","1","5.88%","Page excluded from the index","Confirm the target; fix if the page should rank."],
+ ["High","Internal URL with no response","Server returned nothing","1","0.70%","Dead end for users and crawlers","Find via inlinks export; fix the link."],
+ ["High","Uncrawlable menu link","\"Resources\" has no href (PSI)","1","–","Child pages may be missed","Give the menu item a real destination."],
+ ["High","Missing H1","/calculators/","1","11.11%","No clear topic signal","Add one descriptive H1."],
+ ["Medium","Missing meta description","SF 1; Audit 4 incl. Commercial Asset Finance","1 (4)","11.11%","Google writes its own snippet","Write unique 120–155 char descriptions."],
+ ["Medium","Thin content","110–115 words (Calculators, Terms, Disclaimer)","2 (3)","11.76%","Too little to rank on","Expand Calculators; noindex legal pages."],
+ ["Medium","Title over 60 characters","Home 64, Loan Types 62","2","22.22%","Truncated in results","Rewrite to 50–60 characters."],
+ ["Medium","Orphan pages","3 legal pages, no inlinks (Audit)","3","33%","Hard to discover","Link from the footer."],
+ ["Medium","Missing HSTS header","Strict-Transport-Security absent","93","69.92%","Browsers may try HTTP first","Turn on after HTTPS is enforced."],
+ ["Low","Meta description too long","1 over 155 chars; 3 over 985px","1–3","11–33%","Snippet cut off","Trim with the benefit first."],
+ ["Low","Heading order","H1 not first (1); levels skip (3)","4","11–33%","Muddled outline","Step H1 → H2 → H3 in order."],
+ ["Low","Missing / duplicate H2","1 missing; 3 duplicated","1 / 3","11–33%","Weaker structure","Make H2s page-specific."],
+ ["Low","Links with no anchor text","Empty or unlabelled image links","4","44.44%","No context for the target","Add text or alt text."],
+ ["Low","Internal redirects","Internal links via 3xx","2","1.40%","Extra hop and latency","Link to the final URL."],
+ ["Low","Broken external links","Outbound 4xx","2","1.40%","Poor experience","Update or remove."],
+ ["Low","Images missing size attributes","No width/height","2","4.44%","Layout shift (CLS)","Add width and height."],
+ ["Low","Missing security headers","CSP, X-Frame, X-Content-Type, Referrer","130","97.74%","Security hardening only","Set once at server level."],
+ ["Low","Unsafe cross-origin links","target=\"_blank\" without noopener","9","6.77%","Legacy-browser risk","Add rel=\"noopener\"."]
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("kf").innerHTML=I.map(r=>`<tr><td class="k">${esc(r[1])}</td><td>${esc(r[2])}</td><td class="num">${esc(r[3])}</td><td class="num">${esc(r[4])}</td><td>${esc(r[5])}</td><td><span class="pill p-${r[0]}">${r[0]}</span></td></tr>`).join("");
+const W={Critical:"Fix in week 1",High:"Weeks 2–4",Medium:"Weeks 2–8",Low:"As capacity allows"};
+document.getElementById("pri").innerHTML=["Critical","High","Medium","Low"].map(p=>{
+  const g=I.filter(r=>r[0]===p);
+  return `<div style="break-inside:avoid"><div class="pri-head"><h3>${p==="Critical"?"Critical":p+" priority"}</h3><span class="pill p-${p}">${W[p]}</span></div>
+  <div class="tbl"><table><thead><tr><th>SEO issue</th><th>Current status</th><th class="num">URLs</th><th class="num">%</th><th>SEO impact</th><th>Recommended action</th></tr></thead><tbody>${
+   g.map(r=>`<tr><td class="k">${esc(r[1])}</td><td>${esc(r[2])}</td><td class="num">${esc(r[3])}</td><td class="num">${esc(r[4])}</td><td>${esc(r[5])}</td><td>${esc(r[6])}</td></tr>`).join("")}</tbody></table></div></div>`;
+}).join("");
+const B=[
+ ["HTML pages crawled","9","9+","Grows as content is added"],
+ ["Total URLs assessed (security)","≈133","—","Crawl scope; keep settings identical"],
+ ["Screaming Frog issue types flagged","27","under 10","Overall hygiene"],
+ ["High-priority issue types (SF)","5","0","The items that block trust and indexing"],
+ ["HTTP (insecure) URLs","39 (29.32%)","0","Security and a confirmed ranking signal"],
+ ["Insecure forms (page / action)","1 / 1","0 / 0","Protects enquiry data"],
+ ["Internal URLs with no response","1 (0.70%)","0","No dead ends"],
+ ["Internal redirects (3xx)","2 (1.40%)","0","Direct links, no hops"],
+ ["Internal 4xx / 5xx","0 / 0","0 / 0","Already ideal; protect it"],
+ ["External broken links (4xx)","2","0","User experience"],
+ ["Pages missing a canonical","8 (47.06%)","0","Controls the indexed version"],
+ ["Canonicalised pages","1 (5.88%)","0 unintended","Keeps real pages indexable"],
+ ["Pages missing meta description","1 (Audit 4)","0","Controls the snippet shown"],
+ ["Meta descriptions over 155 chars / 985px","1 / 3","0 / 0","Prevents truncation"],
+ ["Titles over 60 chars / 561px","2 / 2","0 / 0","Prevents truncation"],
+ ["Pages missing an H1","1 (11.11%)","0","Establishes page topic"],
+ ["Heading order issues","4","0","Clean outline and accessibility"],
+ ["Low content pages","2 (Audit 3)","0 indexable","Depth on commercial pages"],
+ ["Orphan pages","3 (Audit)","0","Discoverability"],
+ ["Pages with empty-anchor links","4 (44.44%)","0","Link context"],
+ ["Images missing size attributes","2 (4.44%)","0","Layout stability (CLS)"],
+ ["URLs missing HSTS","93 (69.92%)","0","Enforces HTTPS in the browser"],
+ ["URLs missing other security headers","130 (97.74%)","0","Visitor protection"],
+ ["Uncrawlable links (PSI)","1","0","Navigation fully crawlable"],
+ ["PageSpeed Insights SEO (mobile)","92","100","Lighthouse SEO checks pass"]
+];
+document.getElementById("base").innerHTML=B.map(r=>`<tr><td class="k">${esc(r[0])}</td><td class="num">${esc(r[1])}</td><td class="num">${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("");
+</script>
+</body>
+</html>
